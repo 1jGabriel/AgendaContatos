@@ -5,8 +5,8 @@ public class Contato {
 	private int id;
 	private String nome;
 	private String telefone;
-	private String celular;
 	private String email;
+	private String celular;
 	
 	public Contato(String nome, String telefone, String celular, String email) {
 		super();
@@ -25,6 +25,12 @@ public class Contato {
 		this.telefone = telefone;
 		this.celular = celular;
 		this.email = email;
+	}
+
+
+
+	public Contato() {
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -58,6 +64,14 @@ public class Contato {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Contato [id=" + id + ", nome=" + nome + ", telefone=" + telefone + ", email=" + email + ", celular="
+				+ celular + "]";
 	}
 	
 

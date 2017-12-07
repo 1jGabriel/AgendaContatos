@@ -1,4 +1,4 @@
-package agendaContatos;
+package controller;
 
 import java.util.ArrayList;
 
