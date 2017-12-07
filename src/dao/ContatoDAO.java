@@ -28,20 +28,25 @@ public class ContatoDAO {
 	
 	
 	public ArrayList<Contato> consultar(String nome) {
+		//cria conexão com o banco
 		con = ConnectionFactory.getConnection();
 		ArrayList<Contato> contatos = new ArrayList<Contato>();
 
 		try {
+			//cria uma preparação onde pode ser passado atributo para a query
 			con.prepareStatement(CONSULTA_POR_NOME);
 			java.sql.PreparedStatement preparedStmt = con.prepareStatement(CONSULTA_POR_NOME);
 
+			//seta o atributo
 			preparedStmt.setString(1, nome+ "%");
 
+			//executa a query
 			ResultSet resultado = preparedStmt.executeQuery();
 			while (resultado.next()) {
 				contatos.add(new Contato(resultado.getInt("id"), resultado.getString("nome"),
 						resultado.getString("telefone"), resultado.getString("celular"), resultado.getString("email")));
 			}
+			//fecha conexao
 			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

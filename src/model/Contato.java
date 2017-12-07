@@ -30,7 +30,6 @@ public class Contato {
 
 
 	public Contato() {
-		// TODO Auto-generated constructor stub
 	}
 
 
