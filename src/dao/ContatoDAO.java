@@ -17,6 +17,7 @@ public class ContatoDAO {
 	private static final String INSERIR_CONTATO = " INSERT INTO contato (nome, telefone, email, celular) VALUES (?, ?, ?, ?);";
 
 	private static final String CONSULTA_TODOS = "SELECT * FROM CONTATO";
+	private static final String CONSULTA_ID = "SELECT * FROM CONTATO where id = ?";
 
 	private static final String DELETAR_ID = "DELETE FROM Contato where id = ?";
 
@@ -52,6 +53,36 @@ public class ContatoDAO {
 		}		
 		
 		return contatos;
+	}
+	
+	
+	
+	public Contato consultar(int id) {
+		//cria conexão com o banco
+		con = ConnectionFactory.getConnection();
+		Contato contato = null ;
+
+		try {
+			//cria uma preparação onde pode ser passado atributo para a query
+			con.prepareStatement(CONSULTA_ID);
+			java.sql.PreparedStatement preparedStmt = con.prepareStatement(CONSULTA_ID);
+
+			//seta o atributo
+			preparedStmt.setInt(1, id);
+
+			//executa a query
+			ResultSet resultado = preparedStmt.executeQuery();
+			resultado.next();
+				contato = new Contato(resultado.getInt("id"), resultado.getString("nome"),
+						resultado.getString("telefone"), resultado.getString("celular"), resultado.getString("email"));
+			
+			//fecha conexao
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+		
+		return contato;
 	}
 	
 	public void inserirContato(Contato contato) {
