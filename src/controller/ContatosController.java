@@ -9,15 +9,15 @@ public class ContatosController {
 
 		private ContatoDAO dao = new ContatoDAO();
 		
-		public void inserirLivro(Contato contato){
+		public void inserirContato(Contato contato){
 			dao.inserirContato(contato);
 		}
 		
-		public ArrayList<Contato> listarTodasLivros(){
+		public ArrayList<Contato> listarTodosContatos(){
 			return dao.consultarTodos();
 		}
 		
-		public void updateLivro(Contato contato){
+		public void updateContato(Contato contato){
 			dao.updateContato(contato);
 			
 		}

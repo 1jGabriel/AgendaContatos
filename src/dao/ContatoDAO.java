@@ -24,7 +24,6 @@ public class ContatoDAO {
 
 	private static final String CONSULTA_POR_NOME = "SELECT * FROM contato where nome like ?";
 	
-	private static final String CONSULTA_POR_NUMERO = "SELECT * FROM contato where celular like ? or telefone like ?";
 	
 	
 	public ArrayList<Contato> consultar(String nome) {
@@ -55,32 +54,6 @@ public class ContatoDAO {
 		return contatos;
 	}
 	
-	
-	
-	public ArrayList<Contato> consultarPorTelefone(String telefone) {
-		con = ConnectionFactory.getConnection();
-		ArrayList<Contato> contatos = new ArrayList<Contato>();
-
-		try {
-			con.prepareStatement(CONSULTA_POR_NUMERO);
-			java.sql.PreparedStatement preparedStmt = con.prepareStatement(CONSULTA_POR_NUMERO);
-
-			preparedStmt.setString(1, telefone+ "%");
-			preparedStmt.setString(2, telefone+ "%");
-
-			ResultSet resultado = preparedStmt.executeQuery();
-			while (resultado.next()) {
-				contatos.add(new Contato(resultado.getInt("id"), resultado.getString("nome"),
-						resultado.getString("telefone"), resultado.getString("celular"), resultado.getString("email")));
-			}
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}		
-		
-		return contatos;
-	}
-
 	public void inserirContato(Contato contato) {
 
 		con = ConnectionFactory.getConnection();
