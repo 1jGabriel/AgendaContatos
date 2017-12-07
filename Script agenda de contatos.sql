@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Dez-2017 √†s 04:30
--- Vers√£o do servidor: 10.1.28-MariaDB
+-- Generation Time: 07-Dez-2017 ‡s 05:46
+-- Vers„o do servidor: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -42,10 +42,12 @@ CREATE TABLE `agenda` (
 CREATE TABLE `contato` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
-  `telefone` varchar(8) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `telefone` varchar(8) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `celular` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 
 --
 -- Indexes for dumped tables
@@ -78,7 +80,7 @@ ALTER TABLE `agenda`
 -- AUTO_INCREMENT for table `contato`
 --
 ALTER TABLE `contato`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
