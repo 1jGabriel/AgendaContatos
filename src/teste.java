@@ -8,14 +8,14 @@ import model.Contato;
 public class teste {
 	
 	public static void main(String[] args) {
-		Contato contato = new Contato(6, "teste", "92288500", "992288500", "editei");
+		Contato contato = new Contato( "teste", "92288500", "992288500", "editei");
 		
 		ContatoDAO dao = new ContatoDAO();
 		ContatoController contatoController = new ContatoController();
 		
 		
-		//contatoController.inserirContato(contato);
-		contatoController.deletarContato(contato);
+		contatoController.inserirContato(contato);
+		//contatoController.deletarContato(contato);
 		//dao.updateContato(contato);
 		//dao.consultarPorTelefone("92288500");
 		ArrayList<Contato> contatos =   contatoController.listarTodosContatos();
