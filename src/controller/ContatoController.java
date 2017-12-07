@@ -5,12 +5,15 @@ import java.util.ArrayList;
 import dao.ContatoDAO;
 import model.Contato;
 
-public class ContatosController {
+public class ContatoController {
 
 		private ContatoDAO dao = new ContatoDAO();
+		private AgendaController agendaController = new AgendaController();
 		
 		public void inserirContato(Contato contato){
 			dao.inserirContato(contato);
+			agendaController.inserirContato(dao.consultar(contato.getNome()).get(0));
+			
 		}
 		
 		public ArrayList<Contato> listarTodosContatos(){
@@ -23,6 +26,7 @@ public class ContatosController {
 		}
 		
 		public void deletarContato(Contato contato){
+			agendaController.deletarContato(contato);
 			dao.deletarContato(contato.getId());
 		}
 

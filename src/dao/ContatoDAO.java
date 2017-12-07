@@ -17,6 +17,7 @@ public class ContatoDAO {
 	private static final String INSERIR_CONTATO = " INSERT INTO contato (nome, telefone, email, celular) VALUES (?, ?, ?, ?);";
 
 	private static final String CONSULTA_TODOS = "SELECT * FROM CONTATO";
+	
 	private static final String CONSULTA_ID = "SELECT * FROM CONTATO where id = ?";
 
 	private static final String DELETAR_ID = "DELETE FROM Contato where id = ?";
