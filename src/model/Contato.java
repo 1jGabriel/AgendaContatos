@@ -4,11 +4,11 @@ public class Contato {
 	
 	private int id;
 	private String nome;
-	private int telefone;
-	private int celular;
+	private String telefone;
+	private String celular;
 	private String email;
 	
-	public Contato(String nome, int telefone, int celular, String email) {
+	public Contato(String nome, String telefone, String celular, String email) {
 		super();
 		this.nome = nome;
 		this.telefone = telefone;
@@ -16,6 +16,19 @@ public class Contato {
 		this.email = email;
 	}
 	
+	
+	
+	public Contato(int id, String nome, String telefone, String celular, String email) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.celular = celular;
+		this.email = email;
+	}
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -28,16 +41,16 @@ public class Contato {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public int getCelular() {
+	public String getCelular() {
 		return celular;
 	}
-	public void setCelular(int celular) {
+	public void setCelular(String celular) {
 		this.celular = celular;
 	}
 	public String getEmail() {
